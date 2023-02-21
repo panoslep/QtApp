@@ -1,33 +1,36 @@
-import QtQuick 2.15
-import QtQuick.Controls.Basic 2.15
+import QtQuick
+import QtQuick.Controls.Basic
 ApplicationWindow {
     visible: true
     width: 600
     height: 500
     title: "Python App"
+    property string currTime: "00:00:00"
 
-    Rectangle {
-        anchors.fill:
+        Rectangle {
+            anchors.fill: parent
 
-        Image {
-            sourceSize.width: parent.width
-            sourceSize.height: parent.height
-            source: "./images/playas.jpg"
-            fillMode: Image.PreserveAspectCrop
+            Image {
+                sourceSize.width: parent.width
+                sourceSize.height: parent.height
+                source: "./images/image1.jpg"
+                fillMode: Image.PreserveAspectCrop
+            }
+        }
+        Rectangle {
+            anchors.fill: parent
+            color: "transparent"
+            Text {
+                anchors{
+                    bottom: parent.bottom
+                    bottomMargin: 12
+                    left: parent.left
+                    leftMargin: 12
+                }
+                text: currTime
+                font.pixelSize: 24
+                color: "white"
+            }
+
         }
     }
-    Rectangle {
-        anchors.fill: parent
-        color: "transparent"
-        Text {
-            text: "16:38:33"
-            font.pixelSize: 24
-            color: "white"
-        }
-        // Text {
-        //     anchors.centerIn: parent
-        //     text: "Some random text"
-        //     font.pixelSize: 24
-        // }
-    }
-}
