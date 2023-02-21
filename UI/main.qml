@@ -4,8 +4,14 @@ ApplicationWindow {
     visible: true
     width: 600
     height: 500
-    title: "Python App"
+    // height: 600
+    // x: screen.desktopAvailableWidth - width - 12
+    // y: screen.desktopAvailableHeight - height - 48
+    title: "Kids Watch"
+    // flags: Qt.FramelessWindowHint | Qt.Window
+
     property string currTime: "00:00:00"
+        property QtObject backend
 
         Rectangle {
             anchors.fill: parent
@@ -17,6 +23,16 @@ ApplicationWindow {
                 fillMode: Image.PreserveAspectCrop
             }
         }
+
+        Connections {
+            target: backend
+
+            function onUpdated(msg)
+            {
+                currTime = msg;
+            }
+        }
+
         Rectangle {
             anchors.fill: parent
             color: "transparent"
